@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .footer-text {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .footer-text a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .success {
+            color: green;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form onsubmit="return validateLogin()">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="your gmail babe" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Password is 582007" required />
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <div id="message" class="error"></div>
+        <div class="footer-text">
+            Don't have an account? <a href="#">Register here</a>
+        </div>
+    </div>
+
+    <script>
+        function validateLogin() {
+            const correctEmail = "hanaabdelrazek2007@gmail.com";
+            const correctPassword = "582007";
+
+            const emailInput = document.getElementById("email").value;
+            const passwordInput = document.getElementById("password").value;
+            const messageDiv = document.getElementById("message");
+
+            if (emailInput === correctEmail && passwordInput === correctPassword) {
+                messageDiv.className = "success";
+                messageDiv.textContent = "Login successful!";
+
+                window.location.href = "Hanzo-18th-Birthday.html";
+
+                return false; // prevent form submission (for demo)
+            } else {
+                messageDiv.className = "error";
+                messageDiv.textContent = "Invalid email or password.";
+                return false; // prevent form submission
+            }
+        }
+    </script>
+</body>
+</html>
